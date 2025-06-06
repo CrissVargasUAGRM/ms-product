@@ -2,7 +2,7 @@
 npx prisma migrate reset
 
 ## Internamente ejecutar el comando para la migracion antes de levantar todo en conjunto
-npx prisma migrate dev --name init
+npx prisma migrate dev --name init -> ya no ejecutar este comando solo funciona si cada microservicio tiene una DB
 
 # clave secrete: Estudiar -> para pushear a mi github
 ```
