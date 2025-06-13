@@ -154,6 +154,7 @@ exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
   name: 'name',
   price: 'price',
+  quantity: 'quantity',
   createdAt: 'createdAt',
   updateAt: 'updateAt',
   tz_lock: 'tz_lock'
@@ -164,6 +165,16 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   name: 'name',
   password: 'password'
+};
+
+exports.Prisma.PaymentScalarFieldEnum = {
+  id: 'id',
+  clientid: 'clientid',
+  userid: 'userid',
+  orderId: 'orderId',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -187,7 +198,8 @@ exports.Prisma.ModelName = {
   OrderItem: 'OrderItem',
   OrderReceipt: 'OrderReceipt',
   Product: 'Product',
-  User: 'User'
+  User: 'User',
+  Payment: 'Payment'
 };
 
 /**

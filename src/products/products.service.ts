@@ -4,6 +4,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { PrismaClient } from 'generated/prisma';
 import { PaginationDto } from '../common/dto/pagination.dto';
 import { RpcException } from '@nestjs/microservices';
+import { ProductQuantityDto } from './dto/product.quantity.dto';
 
 @Injectable()
 export class ProductsService extends PrismaClient implements OnModuleInit {
@@ -96,5 +97,36 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
     }
 
     return products;
+  }
+
+  async updateQuantityProducts(productQueantity: ProductQuantityDto){
+    const {id, quantity} = productQueantity;
+
+    const product = await this.product.findUnique({
+      where: {
+        id: id
+      }
+    });
+
+    if(!product){
+      throw new RpcException({
+        message: `Product with id ${id} not found`,
+        status: HttpStatus.NOT_FOUND
+      });
+    }
+
+    if(product.quantity < quantity){
+      throw new RpcException({
+        message: `Insufficient stock for product with id ${id}`,
+        status: HttpStatus.BAD_REQUEST
+      });
+    }
+
+    return this.product.update({
+      where: {id},
+      data: {
+        quantity: product.quantity - quantity
+      }
+    });
   }
 }

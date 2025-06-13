@@ -46,6 +46,7 @@ model Product {
   id        Int      @id @default(autoincrement())
   name      String
   price     Float
+  quantity  Int
   createdAt DateTime @default(now())
   updateAt  DateTime @default(now())
   tz_lock   Int      @default(0)
@@ -56,4 +57,14 @@ model User {
   email    String @unique
   name     String
   password String
+}
+
+model Payment {
+  id        Int       @id @default(autoincrement())
+  clientid  Int       @default(1)
+  userid    Int       @default(1)
+  orderId   String
+  amount    Float
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
 }

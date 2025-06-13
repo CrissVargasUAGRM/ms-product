@@ -11,4 +11,9 @@ export class CreateProductDto {
     @Type(() => Number)
     public price: number;
 
+    @IsNumber()
+    @IsPositive()
+    @Min(1)
+    public quantity: number;
+
 }
