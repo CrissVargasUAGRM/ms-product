@@ -122,7 +122,7 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
       });
     }
 
-    return this.product.update({
+    return await this.product.update({
       where: {id},
       data: {
         quantity: product.quantity - quantity
