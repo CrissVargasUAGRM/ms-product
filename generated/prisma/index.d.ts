@@ -1287,11 +1287,15 @@ export namespace Prisma {
   export type OrderAvgAggregateOutputType = {
     totalAmount: number | null
     totalItems: number | null
+    userid: number | null
+    clientid: number | null
   }
 
   export type OrderSumAggregateOutputType = {
     totalAmount: number | null
     totalItems: number | null
+    userid: number | null
+    clientid: number | null
   }
 
   export type OrderMinAggregateOutputType = {
@@ -1304,6 +1308,8 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     stripeChargeId: string | null
+    userid: number | null
+    clientid: number | null
   }
 
   export type OrderMaxAggregateOutputType = {
@@ -1316,6 +1322,8 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     stripeChargeId: string | null
+    userid: number | null
+    clientid: number | null
   }
 
   export type OrderCountAggregateOutputType = {
@@ -1328,6 +1336,8 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     stripeChargeId: number
+    userid: number
+    clientid: number
     _all: number
   }
 
@@ -1335,11 +1345,15 @@ export namespace Prisma {
   export type OrderAvgAggregateInputType = {
     totalAmount?: true
     totalItems?: true
+    userid?: true
+    clientid?: true
   }
 
   export type OrderSumAggregateInputType = {
     totalAmount?: true
     totalItems?: true
+    userid?: true
+    clientid?: true
   }
 
   export type OrderMinAggregateInputType = {
@@ -1352,6 +1366,8 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     stripeChargeId?: true
+    userid?: true
+    clientid?: true
   }
 
   export type OrderMaxAggregateInputType = {
@@ -1364,6 +1380,8 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     stripeChargeId?: true
+    userid?: true
+    clientid?: true
   }
 
   export type OrderCountAggregateInputType = {
@@ -1376,6 +1394,8 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     stripeChargeId?: true
+    userid?: true
+    clientid?: true
     _all?: true
   }
 
@@ -1475,6 +1495,8 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     stripeChargeId: string | null
+    userid: number
+    clientid: number
     _count: OrderCountAggregateOutputType | null
     _avg: OrderAvgAggregateOutputType | null
     _sum: OrderSumAggregateOutputType | null
@@ -1506,6 +1528,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     stripeChargeId?: boolean
+    userid?: boolean
+    clientid?: boolean
     OrderItem?: boolean | Order$OrderItemArgs<ExtArgs>
     OrderReceipt?: boolean | Order$OrderReceiptArgs<ExtArgs>
     _count?: boolean | OrderCountOutputTypeDefaultArgs<ExtArgs>
@@ -1521,6 +1545,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     stripeChargeId?: boolean
+    userid?: boolean
+    clientid?: boolean
   }, ExtArgs["result"]["order"]>
 
   export type OrderSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1533,6 +1559,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     stripeChargeId?: boolean
+    userid?: boolean
+    clientid?: boolean
   }, ExtArgs["result"]["order"]>
 
   export type OrderSelectScalar = {
@@ -1545,9 +1573,11 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     stripeChargeId?: boolean
+    userid?: boolean
+    clientid?: boolean
   }
 
-  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "totalAmount" | "totalItems" | "status" | "paid" | "paidAt" | "createdAt" | "updatedAt" | "stripeChargeId", ExtArgs["result"]["order"]>
+  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "totalAmount" | "totalItems" | "status" | "paid" | "paidAt" | "createdAt" | "updatedAt" | "stripeChargeId" | "userid" | "clientid", ExtArgs["result"]["order"]>
   export type OrderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     OrderItem?: boolean | Order$OrderItemArgs<ExtArgs>
     OrderReceipt?: boolean | Order$OrderReceiptArgs<ExtArgs>
@@ -1572,6 +1602,8 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       stripeChargeId: string | null
+      userid: number
+      clientid: number
     }, ExtArgs["result"]["order"]>
     composites: {}
   }
@@ -2006,6 +2038,8 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Order", 'DateTime'>
     readonly updatedAt: FieldRef<"Order", 'DateTime'>
     readonly stripeChargeId: FieldRef<"Order", 'String'>
+    readonly userid: FieldRef<"Order", 'Int'>
+    readonly clientid: FieldRef<"Order", 'Int'>
   }
     
 
@@ -6726,7 +6760,9 @@ export namespace Prisma {
     paidAt: 'paidAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    stripeChargeId: 'stripeChargeId'
+    stripeChargeId: 'stripeChargeId',
+    userid: 'userid',
+    clientid: 'clientid'
   };
 
   export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
@@ -6884,6 +6920,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
     stripeChargeId?: StringNullableFilter<"Order"> | string | null
+    userid?: IntFilter<"Order"> | number
+    clientid?: IntFilter<"Order"> | number
     OrderItem?: OrderItemListRelationFilter
     OrderReceipt?: OrderReceiptListRelationFilter
   }
@@ -6898,6 +6936,8 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     stripeChargeId?: SortOrderInput | SortOrder
+    userid?: SortOrder
+    clientid?: SortOrder
     OrderItem?: OrderItemOrderByRelationAggregateInput
     OrderReceipt?: OrderReceiptOrderByRelationAggregateInput
   }
@@ -6915,6 +6955,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
     stripeChargeId?: StringNullableFilter<"Order"> | string | null
+    userid?: IntFilter<"Order"> | number
+    clientid?: IntFilter<"Order"> | number
     OrderItem?: OrderItemListRelationFilter
     OrderReceipt?: OrderReceiptListRelationFilter
   }, "id">
@@ -6929,6 +6971,8 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     stripeChargeId?: SortOrderInput | SortOrder
+    userid?: SortOrder
+    clientid?: SortOrder
     _count?: OrderCountOrderByAggregateInput
     _avg?: OrderAvgOrderByAggregateInput
     _max?: OrderMaxOrderByAggregateInput
@@ -6949,6 +6993,8 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Order"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Order"> | Date | string
     stripeChargeId?: StringNullableWithAggregatesFilter<"Order"> | string | null
+    userid?: IntWithAggregatesFilter<"Order"> | number
+    clientid?: IntWithAggregatesFilter<"Order"> | number
   }
 
   export type OrderItemWhereInput = {
@@ -7181,6 +7227,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt: Date | string
     stripeChargeId?: string | null
+    userid?: number
+    clientid?: number
     OrderItem?: OrderItemCreateNestedManyWithoutOrderInput
     OrderReceipt?: OrderReceiptCreateNestedManyWithoutOrderInput
   }
@@ -7195,6 +7243,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt: Date | string
     stripeChargeId?: string | null
+    userid?: number
+    clientid?: number
     OrderItem?: OrderItemUncheckedCreateNestedManyWithoutOrderInput
     OrderReceipt?: OrderReceiptUncheckedCreateNestedManyWithoutOrderInput
   }
@@ -7209,6 +7259,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stripeChargeId?: NullableStringFieldUpdateOperationsInput | string | null
+    userid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
     OrderItem?: OrderItemUpdateManyWithoutOrderNestedInput
     OrderReceipt?: OrderReceiptUpdateManyWithoutOrderNestedInput
   }
@@ -7223,6 +7275,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stripeChargeId?: NullableStringFieldUpdateOperationsInput | string | null
+    userid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
     OrderItem?: OrderItemUncheckedUpdateManyWithoutOrderNestedInput
     OrderReceipt?: OrderReceiptUncheckedUpdateManyWithoutOrderNestedInput
   }
@@ -7237,6 +7291,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt: Date | string
     stripeChargeId?: string | null
+    userid?: number
+    clientid?: number
   }
 
   export type OrderUpdateManyMutationInput = {
@@ -7249,6 +7305,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stripeChargeId?: NullableStringFieldUpdateOperationsInput | string | null
+    userid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
   }
 
   export type OrderUncheckedUpdateManyInput = {
@@ -7261,6 +7319,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stripeChargeId?: NullableStringFieldUpdateOperationsInput | string | null
+    userid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
   }
 
   export type OrderItemCreateInput = {
@@ -7593,11 +7653,15 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     stripeChargeId?: SortOrder
+    userid?: SortOrder
+    clientid?: SortOrder
   }
 
   export type OrderAvgOrderByAggregateInput = {
     totalAmount?: SortOrder
     totalItems?: SortOrder
+    userid?: SortOrder
+    clientid?: SortOrder
   }
 
   export type OrderMaxOrderByAggregateInput = {
@@ -7610,6 +7674,8 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     stripeChargeId?: SortOrder
+    userid?: SortOrder
+    clientid?: SortOrder
   }
 
   export type OrderMinOrderByAggregateInput = {
@@ -7622,11 +7688,15 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     stripeChargeId?: SortOrder
+    userid?: SortOrder
+    clientid?: SortOrder
   }
 
   export type OrderSumOrderByAggregateInput = {
     totalAmount?: SortOrder
     totalItems?: SortOrder
+    userid?: SortOrder
+    clientid?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -8323,6 +8393,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt: Date | string
     stripeChargeId?: string | null
+    userid?: number
+    clientid?: number
     OrderReceipt?: OrderReceiptCreateNestedManyWithoutOrderInput
   }
 
@@ -8336,6 +8408,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt: Date | string
     stripeChargeId?: string | null
+    userid?: number
+    clientid?: number
     OrderReceipt?: OrderReceiptUncheckedCreateNestedManyWithoutOrderInput
   }
 
@@ -8365,6 +8439,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stripeChargeId?: NullableStringFieldUpdateOperationsInput | string | null
+    userid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
     OrderReceipt?: OrderReceiptUpdateManyWithoutOrderNestedInput
   }
 
@@ -8378,6 +8454,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stripeChargeId?: NullableStringFieldUpdateOperationsInput | string | null
+    userid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
     OrderReceipt?: OrderReceiptUncheckedUpdateManyWithoutOrderNestedInput
   }
 
@@ -8391,6 +8469,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt: Date | string
     stripeChargeId?: string | null
+    userid?: number
+    clientid?: number
     OrderItem?: OrderItemCreateNestedManyWithoutOrderInput
   }
 
@@ -8404,6 +8484,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt: Date | string
     stripeChargeId?: string | null
+    userid?: number
+    clientid?: number
     OrderItem?: OrderItemUncheckedCreateNestedManyWithoutOrderInput
   }
 
@@ -8433,6 +8515,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stripeChargeId?: NullableStringFieldUpdateOperationsInput | string | null
+    userid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
     OrderItem?: OrderItemUpdateManyWithoutOrderNestedInput
   }
 
@@ -8446,6 +8530,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stripeChargeId?: NullableStringFieldUpdateOperationsInput | string | null
+    userid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
     OrderItem?: OrderItemUncheckedUpdateManyWithoutOrderNestedInput
   }
 

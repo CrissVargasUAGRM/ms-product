@@ -129,7 +129,9 @@ exports.Prisma.OrderScalarFieldEnum = {
   paidAt: 'paidAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  stripeChargeId: 'stripeChargeId'
+  stripeChargeId: 'stripeChargeId',
+  userid: 'userid',
+  clientid: 'clientid'
 };
 
 exports.Prisma.OrderItemScalarFieldEnum = {
